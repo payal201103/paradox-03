@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK SELLING</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>*{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+            background-color: wheat;
+            position: relative;
+            background: url(https://th.bing.com/th/id/OIP.cAI5SqplS28KyXkXKZERyQHaIO?w=193&h=214&c=7&r=0&o=5&dpr=1.3&pid=1.7);
+            background-repeat: no-repeat;
+            background-size: 578px;
+            background-position: right bottom;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 50px;
+            box-shadow: 2px 2px 12px 12px lightblue;
+            z-index: 1;
+        }
+        .menu{
+            display: flex;
+        }
+        .menu li a{
+            padding: 10px 15px;
+            color: #333;
+            font-size: 12px;
+        }
+        .sitename{
+            font-size: 25px;
+            font-weight: bold;
+            color: rgb(181, 204, 204);
+        }
+        .logo img{
+            width: 80px;
+        }
+        .menu li a:hover, .active{
+            background-color: #d6b3b3;
+            font-weight: 700;
+            transition: all ease 0.4s;
+        }
+        .hero{
+            width: 650px;
+            position: absolute;
+            left: 10%;
+            top: 33%;
+            transform: translate(-10% ,-33%);
+        }
+        .hero p:nth-child(1), .hero .details{
+            color: #333;
+            font-size: 20px;
+        }
+        .details{
+            line-height: 30px !important;
+        }
+        .hero h1{
+            font-size: 40px;
+            margin: 0;
+            letter-spacing: 3px;
+            color: #000;
+        }
+        .hero span{
+            color: orangered;
+        }
+        .download{
+            width: 200px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: orangered;
+            color: #d6b3b3;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .download:hover{
+            background-color: #333;
+            transition: all ease 0.4s;
+        }
+        .heading{
+            text-align: center;
+            padding: 2rem 0;
+            padding-bottom: 3rem;
+            font-size: 3.5rem;
+            color: #000;
+        }
+        .heading span{
+            background-color: orangered;
+            color: #fff;
+            display: inline-block;
+            padding: .5rem 3rem;
+            border-radius: 4px;
+        }
+         .box-container{
+             display: flex;
+             min-width: 30rem 1fr;
+             grid-area: 1.5rem;
+        
+        }
+        .box-container .box{
+            padding: 2rem 1rem;
+            background-color: #fff;
+            outline: .1rem solid lightgray;
+            outline-offset: -1rem;
+            text-align: center;
+            box-shadow: 0 .5rem 1rem lightgray;
+        }
+         .box-container .box:hover{
+            outline: .2rem solid #000;
+            outline-offset: 0rem;
+        }
+         .box-container .box img{
+            margin: 1rem 0;
+            height: 15rem;
+        }
+        .box-container .box h3{
+            font-size: 2.5rem;
+            line-height: 1.8;
+            color: #000;
+        }
+        .box-container .box h3{
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #666;
+            padding: 1rem 0;
+        }
+        .btn{
+            margin-top: 1rem;
+            display: inline-block;
+            padding: .8rem 3rem;
+            font-size: 1.7rem;
+            border-radius: .5rem;
+            border: .2rem solid #333;
+            color: #000;
+            cursor: pointer;
+            background: none;
+        }
+        .btn:hover{
+            background-color: orangered;
+            color: #fff;
+            border: .2rem solid #fff;
+        }
+        .product .product-slider{
+            padding: 1rem;
+        }
+        .product .product-slider:first-child{
+            margin-bottom: 2rem;
+        }
+        .product .product-slider .box{
+            background-color: #fff;
+            border-radius: .5rem;
+            text-align: center;
+            padding: 3rem 2rem;
+            outline-offset: -1rem;
+            text-align: center;
+            outline: .1rem solid lightgray;
+            box-shadow: 0 .5rem 1rem lightgray;
+            transition: .2s linear;
+        }
+        .product .product-slider .box:hover{
+            outline-offset: 0rem;
+            outline: .1rem solid lightgray;
+        }
+        .product .product-slider .box img{
+            height: 20rem;
+        }
+        .product .product-slider .box h3{
+            font-size: 2rem;
+            color: #000;
+        }
+        .product .product-slider .box .price{
+            font-size: 2rem;
+            columns: #666;
+            padding: .5rem 0;
+        }
+        .product .product-slider .box .stars i{
+            font-size: 1.7rem;
+            color: orangered;
+            padding: .5rem 0;
+        }
+        .wrapper{
+            display: grid;
+            grid-template-columns: 30rem 30rem 30rem;
+            grid-area: 1.5rem;
+        }</style>
+</head>
+
+<body>
+    <section class="main">
+        <nav>
+            <a href="#" class="logo"><img src="https://th.bing.com/th/id/OIP.0EXTL46t7mr9aVt9W9qFlgHaFj?w=254&h=191&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt=""></a>
+            <ul class="menu">
+                <li><a href="#" class="active">home</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">New Arrivel</a></li>
+                <li><a href="#">Writer</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <a href="#" class="sitename">Book Store</a>
+        </nav>
+        <section class="hero" id="home">
+            <p>Book</p>
+            <h1>Find Four <span>Ideal</span> books Here</h1>
+            <p class="details">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore autem neque dolor, numquam esse enim
+                doloribus, in sapiente optio quasi et temporibus sint exercitationem earum repellendus officia deleniti
+                culpa eveniet reiciendis iure provident. Commodi totam recusandae alias laudantium nobis tempora,
+                perspiciatis, quisquam minus ullam mollitia repellendus reiciendis? Iusto, quas. Ab!
+            </p>
+            <a href="#" class="download">Dwonload Book</a>
+        </section>
+    </section>
+    <section class="featured" id="featured">
+        <h1 class="heading">Our <span>featured</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="https://th.bing.com/th?id=OIP.AroBu_TlSVrvIzVCBF6DGwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="">
+                <h3>Best and Cool</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, laudantium.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+            <div class="box">
+                <img src="https://th.bing.com/th/id/OIP.95k1uy4Gmy6Mzz9oOYQS1wHaHa?w=206&h=206&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+                <h3>Best and Cool</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, laudantium.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+            <div class="box">
+                <img src="https://th.bing.com/th/id/OIP.V84_exlHVpzt11WySAOcuQHaHa?pid=ImgDet&w=202&h=202&c=7&dpr=1.3" alt="">
+                <h3>Best and Cool</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, laudantium.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+    </section>
+    <section class="product" id="product">
+        <h1 class="heading">our <span>product</span></h1>
+        <div class="product-slider">
+            <div class="wrapper">
+                <div class="box">
+                    <img src="https://m.media-amazon.com/images/I/91dCmktk8ZL._AC_UL480_QL65_.jpg" alt="">
+                    <h3>Read Best Book</h3>
+                    <div class="price">$99</div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="https://m.media-amazon.com/images/I/718Ua24DrAL._AC_UL480_QL65_.jpg" alt="">
+                    <h3>Read Best Book</h3>
+                    <div class="price">$99</div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="https://m.media-amazon.com/images/I/71PyMcDxTpL._AC_UL480_QL65_.jpg" alt="">
+                    <h3>Read Best Book</h3>
+                    <div class="price">$99</div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="https://m.media-amazon.com/images/I/81WYywrTuvL._AC_UL480_QL65_.jpg" alt="">
+                    <h3>Read Best Book</h3>
+                    <div class="price">$99</div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="https://m.media-amazon.com/images/I/51K4B2j1xSL._AC_UL480_QL65_.jpg" alt="">
+                    <h3>Read Best Book</h3>
+                    <div class="price">$99</div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="https://m.media-amazon.com/images/I/91YXhMaxXiL._AC_UL480_QL65_.jpg" alt="">
+                    <h3>Read Best Book</h3>
+                    <div class="price">$99</div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
